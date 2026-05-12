@@ -1,1 +1,5 @@
+# Project Management Approach
 
+This project will use a hybrid Kanban/Scrum approach. Since the project already exists and consists mainly of two Python files, development will focus on improving, stabilizing, and documenting the current application instead of building a new product from zero. Kanban will be used to manage individual tasks such as bug fixes, refactoring, testing, and documentation updates. Scrum-style stages will be used to organize the project into larger milestones: stabilization, MVP cleanup, testing, and final submission preparation.
+
+The human developer will be responsible for architecture decisions, code review, manual testing, and final approval of all changes. AI assistants may be used to generate boilerplate code, suggest tests, improve documentation, and identify potential edge cases in the database or GUI logic. However, AI-generated changes must not be accepted blindly. The `/docs` folder will serve as the main project context for AI tools, helping them understand the intended architecture and avoid unnecessary or unsafe changes.
