@@ -16,6 +16,7 @@ The current project already includes:
 - Computed cell assignment view.
 - Tkinter GUI with multiple tabs.
 - Basic authorization dialog.
+- Observer pattern audit module (`audit_module/`).
 
 ## MVP scope
 
@@ -43,8 +44,9 @@ The following features are not part of the MVP and may be added later:
 - Web version of the application.
 - Multi-user support.
 - Cloud database storage.
+- `EmailAlertObserver` — extend audit module with email notifications.
 
-## Stage 1: Stabilize existing project
+## Stage 1: Stabilize existing project ✅
 
 - Review `db_core.py` and `gui_app.py`.
 - Remove duplicated or unnecessary code.
@@ -52,7 +54,7 @@ The following features are not part of the MVP and may be added later:
 - Confirm that database tables are created automatically.
 - Confirm that foreign key constraints work correctly.
 
-## Stage 2: Improve input validation
+## Stage 2: Improve input validation ✅
 
 - Validate prison capacity input.
 - Validate required fields before database insertion.
@@ -60,7 +62,7 @@ The following features are not part of the MVP and may be added later:
 - Handle invalid IDs gracefully.
 - Check empty search behavior.
 
-## Stage 3: Testing
+## Stage 3: Testing ✅
 
 - Test adding and deleting prisons.
 - Test adding prisoners until prison capacity is reached.
@@ -69,7 +71,22 @@ The following features are not part of the MVP and may be added later:
 - Test guard update behavior.
 - Test computed cell assignment logic.
 
-## Stage 4: Documentation
+## Stage 4: Design Pattern Implementation ✅
+
+- Feature selected: Audit logging system.
+- Pattern selected: Observer (Behavioral, GoF).
+- Created `audit_module/` directory with `audit_observer.py` and `README.md`.
+- Implemented abstract `AuditObserver` interface.
+- Implemented `AuditLogObserver` writing events to the SQLite `audit_log` table.
+- Implemented `PrisonEventPublisher` subject managing observer subscriptions.
+- Updated architecture diagram to reflect the new module.
+- Recorded experiment log in PKM repository.
+
+### Scope adjustments
+
+No scope changes were required. The Observer pattern mapped directly onto the existing audit trigger logic. The module was added as a new directory without modifying `db_core.py` or `gui_app.py`.
+
+## Stage 5: Documentation ✅
 
 - Document project structure.
 - Explain how to run the application.
@@ -77,7 +94,7 @@ The following features are not part of the MVP and may be added later:
 - Explain current limitations.
 - Update README if needed.
 
-## Stage 5: Final polish
+## Stage 6: Final polish
 
 - Clean formatting.
 - Remove unused code.
