@@ -17,6 +17,7 @@ The current project already includes:
 - Tkinter GUI with multiple tabs.
 - Basic authorization dialog.
 - Observer pattern audit module (`audit_module/`).
+- Streamlit web interface (`ui_app.py`) connected to backend and Observer pattern.
 
 ## MVP scope
 
@@ -86,7 +87,21 @@ The following features are not part of the MVP and may be added later:
 
 No scope changes were required. The Observer pattern mapped directly onto the existing audit trigger logic. The module was added as a new directory without modifying `db_core.py` or `gui_app.py`.
 
-## Stage 5: Documentation ✅
+## Stage 5: Spec-Driven UI Development ✅
+
+- Created `docs/DESIGN.md` defining the UI design contract (framework, colors, typography, component rules).
+- Generated `ui_app.py` — Streamlit web interface following the design contract.
+- UI connects to `db_core.py` for all CRUD operations.
+- Every add/delete action fires the Observer pattern via `PrisonEventPublisher.notify()`.
+- Audit Log section displays all Observer-recorded events.
+- Dashboard shows live metrics (prison count, population, capacity, guards).
+- Recorded SDD experiment log in PKM repository.
+
+### Scope adjustments
+
+Streamlit was chosen over React/HTML as it requires no additional build tooling and integrates natively with the existing Python codebase. This aligns with the AGENTS.md constraint of keeping the project lightweight.
+
+## Stage 6: Documentation ✅
 
 - Document project structure.
 - Explain how to run the application.
@@ -94,7 +109,7 @@ No scope changes were required. The Observer pattern mapped directly onto the ex
 - Explain current limitations.
 - Update README if needed.
 
-## Stage 6: Final polish
+## Stage 7: Final polish
 
 - Clean formatting.
 - Remove unused code.
