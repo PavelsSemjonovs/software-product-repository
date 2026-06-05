@@ -33,65 +33,99 @@ st.set_page_config(
 
 st.markdown("""
 <style>
+    /* ── Global: force light background and dark text everywhere outside sidebar ── */
+    .stApp, .block-container, [data-testid="stAppViewContainer"] {
+        background-color: #F4F6F7 !important;
+        color: #1C2833 !important;
+    }
+
+    /* ── All text elements in main area — dark ── */
+    .stApp p, .stApp span, .stApp div,
+    .stApp label, .stApp li {
+        color: #1C2833 !important;
+    }
+
+    /* ── Headings ── */
+    h1, h2, h3, h4 {
+        color: #1B4F72 !important;
+    }
+
+    /* ── Metrics ── */
+    [data-testid="stMetricLabel"] p,
+    [data-testid="stMetricLabel"] span,
+    [data-testid="stMetricLabel"] {
+        color: #1C2833 !important;
+        font-weight: 600;
+    }
+    [data-testid="stMetricValue"],
+    [data-testid="stMetricValue"] > div {
+        color: #1B4F72 !important;
+        font-weight: 700;
+    }
+
+    /* ── Sidebar — stays dark blue with white text ── */
     [data-testid="stSidebar"] {
-        background-color: #1B4F72;
+        background-color: #1B4F72 !important;
     }
-    [data-testid="stSidebar"] * {
+    [data-testid="stSidebar"] p,
+    [data-testid="stSidebar"] span,
+    [data-testid="stSidebar"] div,
+    [data-testid="stSidebar"] label {
         color: #FFFFFF !important;
     }
-    [data-testid="stSidebar"] .stRadio label {
-        color: #FFFFFF !important;
-    }
-    h1, h2, h3 {
-        color: #1B4F72;
-    }
+
+    /* ── Buttons ── */
     .stButton > button {
         border-radius: 6px;
-        background-color: #2E86C1;
-        color: white;
+        background-color: #2E86C1 !important;
+        color: #FFFFFF !important;
         border: none;
     }
     .stButton > button:hover {
-        background-color: #1B4F72;
-        color: white;
+        background-color: #1B4F72 !important;
+        color: #FFFFFF !important;
     }
-    .block-container {
-        background-color: #F4F6F7;
-    }
-    /* ── Input fields — force light mode appearance ── */
-    input, textarea, [data-baseweb="input"] input,
-    [data-baseweb="textarea"] textarea {
+
+    /* ── Input fields ── */
+    input, textarea {
         background-color: #FFFFFF !important;
         color: #1C2833 !important;
     }
-    [data-baseweb="input"], [data-baseweb="textarea"],
-    [data-baseweb="select"] > div {
+    [data-baseweb="input"], [data-baseweb="textarea"] {
         background-color: #FFFFFF !important;
         border: 1px solid #AEB6BF !important;
     }
-    /* Number input */
     [data-testid="stNumberInput"] input {
         background-color: #FFFFFF !important;
         color: #1C2833 !important;
     }
-    /* Select / dropdown */
-    [data-baseweb="select"] * {
+
+    /* ── Selectbox / dropdown ── */
+    [data-baseweb="select"] > div:first-child {
         background-color: #FFFFFF !important;
+        border: 1px solid #AEB6BF !important;
+    }
+    [data-baseweb="select"] [data-testid="stMarkdownContainer"] p {
         color: #1C2833 !important;
     }
-    /* Labels above inputs */
-    label[data-testid="stWidgetLabel"] p,
-    .stTextInput label, .stNumberInput label,
-    .stSelectbox label, .stTextArea label {
+
+    /* ── Widget labels ── */
+    [data-testid="stWidgetLabel"] p {
         color: #1C2833 !important;
         font-weight: 600;
     }
-    /* Form container */
+
+    /* ── Form container ── */
     [data-testid="stForm"] {
         background-color: #FFFFFF;
         border: 1px solid #D0D3D4;
         border-radius: 8px;
         padding: 16px;
+    }
+
+    /* ── Info / warning / error boxes ── */
+    [data-testid="stAlert"] p {
+        color: #1C2833 !important;
     }
 </style>
 """, unsafe_allow_html=True)
