@@ -58,6 +58,41 @@ st.markdown("""
     .block-container {
         background-color: #F4F6F7;
     }
+    /* ── Input fields — force light mode appearance ── */
+    input, textarea, [data-baseweb="input"] input,
+    [data-baseweb="textarea"] textarea {
+        background-color: #FFFFFF !important;
+        color: #1C2833 !important;
+    }
+    [data-baseweb="input"], [data-baseweb="textarea"],
+    [data-baseweb="select"] > div {
+        background-color: #FFFFFF !important;
+        border: 1px solid #AEB6BF !important;
+    }
+    /* Number input */
+    [data-testid="stNumberInput"] input {
+        background-color: #FFFFFF !important;
+        color: #1C2833 !important;
+    }
+    /* Select / dropdown */
+    [data-baseweb="select"] * {
+        background-color: #FFFFFF !important;
+        color: #1C2833 !important;
+    }
+    /* Labels above inputs */
+    label[data-testid="stWidgetLabel"] p,
+    .stTextInput label, .stNumberInput label,
+    .stSelectbox label, .stTextArea label {
+        color: #1C2833 !important;
+        font-weight: 600;
+    }
+    /* Form container */
+    [data-testid="stForm"] {
+        background-color: #FFFFFF;
+        border: 1px solid #D0D3D4;
+        border-radius: 8px;
+        padding: 16px;
+    }
 </style>
 """, unsafe_allow_html=True)
 
